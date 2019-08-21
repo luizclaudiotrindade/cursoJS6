@@ -1,11 +1,5 @@
 "use strict";
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 /*
 class Usuario{
     constructor(email, senha){
@@ -111,25 +105,36 @@ console.log(y)
 }
 console.log(soma(1,2,3,4,5,6))
 */
-var usuario = {
-  nome: 'Diego',
-  idade: 23,
-  endereco: {
-    cidade: 'Rio do Sul',
-    uf: 'SC',
-    pais: 'Brasil'
-  }
+
+/*
+const usuario = {  
+    nome: 'Diego',  
+    idade: 23,  
+    endereco: {    
+        cidade: 'Rio do Sul',    
+        uf: 'SC',    
+        pais: 'Brasil',  
+    } 
 };
 
-var usuario2 = _objectSpread({}, usuario, {
-  nome: 'Gabriel' //console.log(usuario2)
+const usuario2 = {...usuario, nome:'Gabriel'}
+//console.log(usuario2)
 
-});
+const usuario3 = {
+    ...usuario, endereco:{...usuario.endereco, cidade:'lontras' }
+}
+console.log(usuario3)*/
 
-var usuario3 = _objectSpread({}, usuario, {
-  endereco: _objectSpread({}, usuario.endereco, {
-    cidade: 'lontras'
-  })
-});
-
-console.log(usuario3);
+/*
+//6.0 Template Literals
+const usuario = 'Diego'; const idade = 23; console.log('O usuário ' + usuario + ' possui ' + idade + ' anos');
+const usuarioAjustado = `O usuario ${usuario} possui ${idade} anos`
+console.log(usuarioAjustado)*/
+var nome = 'Diego';
+var idade = 23;
+var usuario = {
+  nome: nome,
+  idade: idade,
+  cidade: 'Rio do Sul'
+};
+console.log(usuario);
